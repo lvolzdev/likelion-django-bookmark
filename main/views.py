@@ -5,13 +5,9 @@ from .forms import BookmarkForm
 # Create your views here.
 
 def show(request):
-    bookmark = Bookmark.objects
     bookmarks = Bookmark.objects.all()
-    paginator = paginator(bookmarks, 2)
-    page = request.GET.get('page')
-    posts = paginator.get_page(page)
 
-    return render(request, 'show.html', {'bookmarks':bookmarks, 'posts':posts})
+    return render(request, 'show.html', {'bookmarks':bookmarks})
 
 
 
